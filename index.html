@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="icon" href="hornet_logo.png">
     <link
       href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
       rel="stylesheet"
@@ -14,22 +15,24 @@
 		  display: flex;
 		  justify-content: space-between;
 		  align-items: center;
-		  padding: 20px;
 		}
-  
 		.col {
 		  flex: 1;
 		}
-  
 		.col-text {
 		  color: #fff;
 		}
-  
 		.col-logo img {
 		  max-width: 100%;
 		  height: auto;
 		}
-	  </style>
+
+		.button-container {
+			display: flex;
+			gap: 10px; /* Adjust the space between buttons */
+		}
+		
+	</style>
   </head>
   <body>
     <div class="container">
@@ -57,14 +60,25 @@
 				<h2>Hacks</h2>
 			</div>
 			<div class="col col-logo">
-			  <!-- Uncomment and adjust the logo size as needed -->
 			  <img src="hornet_logo.png" alt="Hornet Hacks Logo" />
 			</div>
 		  </div>
-        <button>
-          SIGN UP
-          <span><i class="ri-arrow-right-line"></i></span>
-        </button>
+
+        <!-- Button Container to hold both buttons -->
+        <div class="button-container">
+			<!--fix the underline on the discord button. also the whole column becomes the link-->
+			<a href="https://discord.gg/BbnSYp5e3P">
+				<button>
+					DISCORD
+					<span><i class="ri-discord-fill"></i></span>
+				</button>
+			</a>
+			<button>
+			  SIGN UP
+			  <span><i class="ri-arrow-right-line"></i></span>
+			</button>
+		</div>
+		
         <div class="scroll__bottom">
           <a href="#">
             <span><i class="ri-mouse-fill"></i></span>
@@ -77,6 +91,18 @@
           <a href="#"><i class="ri-youtube-fill"></i></a>
         </div>
       </section>
+
+	  <section class="about_section">
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae amet obcaecati quos, officiis suscipit sapiente, veritatis ducimus veniam nostrum odit eius. Culpa molestiae fuga placeat. Eius, quia nulla! Totam, cum?</p>
+	  </section>
+
+	  <section class="faq_section">
+	
+	  </section>
+
+	  <footer class="footer_section">
+
+	  </footer>
     </div>
 
     <script src="https://unpkg.com/scrollreveal"></script>
