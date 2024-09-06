@@ -1,136 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link rel="icon" href="hornet_logo.png">
-    <link
-      href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css" />
-    <title>Hornet Hacks</title>
+	<link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"/>
+	<link rel="stylesheet" href="styles.css" />
+	<title>Hornet Hacks</title>
 	<style>
-		.row {
-		  display: flex;
-		  justify-content: space-between;
-		  align-items: center;
+		.row_container {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin-left: 3%;
+			margin-right: 3%;
 		}
 		.col {
-		  flex: 1;
+			flex: 1;
 		}
 		.col-text {
-		  color: #fff;
+			color: #fff;
 		}
 		.col-logo img {
-		  max-width: 100%;
-		  height: auto;
+			max-width: 100%;
+			height: auto;
 		}
 
 		.button-container {
 			display: flex;
 			gap: 10px; /* Adjust the space between buttons */
+			margin: 3%;
+		}
+		.button-container button {
+			cursor: pointer;
+			text-decoration: none;
+		}
+		.button-container a {
+			text-decoration: none;
 		}
 		
 	</style>
-  </head>
-  <body>
-    <div class="container">
-      <nav>
-        <ul class="nav__links">
-          <div>
-            <li>
-              <!--<img src="assets/logo.png" alt="logo" /> -->
-			  <h1 style="color: #fff; margin-right: 3em; font-size: 2em;">Hornet Hacks</h1>
-            </li>
-            <li><a href="#">HOME</a></li>
-			<li><a href="#">ABOUT</a></li>
-			<li><a href="#">FAQ</a></li>
-			<li><a href="#">CONTACT</a></li>
-          </div>
-          <li><a href="#">SIGN UP</a></li>
-        </ul>
-      </nav>
+</head>
 
-      <section class="section__container">
-		<div class="row">
-			<div class="col col-text">
-				<h3>ACM & Carlsen Center presents</h3>
-				<h1>Hornet</h1>
-				<h2>Hacks</h2>
+
+
+
+
+
+
+<body>
+	<div class="landing_container">
+		<nav>
+			<ul class="nav__links">
+				<div>
+					<li>
+						<!--<img src="assets/logo.png" alt="logo" /> -->
+						<h1 style="color: #fff; margin-right: 3em; font-size: 2em;">Hornet Hacks</h1>
+					</li>
+					<li><a href="#home">HOME</a></li>
+					<li><a href="#about">ABOUT</a></li>
+					<li><a href="#faq">FAQ</a></li>
+					<li><a href="#contact">CONTACT</a></li>
+					<li><a href="https://lu.ma/mkoysipb" target="_blank">SIGN UP</a></li>
+				</div>
+			</ul>
+		</nav>
+
+		<section id="home" class="banner__container">
+			<!-- Row Container to hold welcome and hornet logo -->
+			<div class="row_container">
+				<div class="col col-text">
+					<h3>Carlsen Center & ACM presents</h3>
+					<h1>Hornet</h1>
+					<h2>Hacks</h2>
+				</div>
+				<div class="col col-logo">
+					<img src="hornet.png" alt="Hornet Hacks Logo" />
+				</div>
 			</div>
-			<div class="col col-logo">
-			  <img src="hornet_logo.png" alt="Hornet Hacks Logo" />
+
+			<!-- Button Container to hold both buttons -->
+			<div class="button-container">
+				<!--fix the underline on the discord button. also the whole column becomes the link-->
+				<a href="https://discord.gg/QNBgdBuv4p" target="_blank">
+					<button>
+						DISCORD
+						<span><i class="ri-discord-fill"></i></span>
+					</button>
+				</a>
+				<a href="https://lu.ma/mkoysipb" target="_blank">
+					<button>
+						SIGN UP
+						<span><i class="ri-arrow-right-line"></i></span>
+					</button>
+				</a>
 			</div>
+			<!--
+			<div class="scroll__bottom">
+				<a href="#">
+				<span><i class="ri-mouse-fill"></i></span>
+				SCROLL
+				</a>
+			</div>
+			-->
+
+			<div class="socials">
+				<a href="https://discord.gg/QNBgdBuv4p" target="_blank"><i class="ri-discord-fill"></i></a>
+				<a href="https://www.instagram.com/carlsencentersacstate/" target="_blank"><i class="ri-instagram-line"></i></a>
+				<a href="#"><i class="ri-youtube-fill"></i></a>
+			</div>
+		</section>
+
+		<!-- About Container -->
+		<div id="about" class="info-container">
+			<h2>About</h2>
+			<p>
+				Hornet Hacks is a collaborative initiative organized by the Carlsen Center for Innovation & Entrepreneurship, ACM Sac State and the college of ECS at Sac State to foster innovation and exploration in the field of Artificial Intelligence (AI).
+				<br><br>
+				This competitive event is designed to bring together students with a passion for AI, encouraging them to develop and innovate in two main categories: AI models and AI service-oriented applications. 
+				Participants have the flexibility to focus on one category or integrate both into their projects. The competition is open to teams with a minimum of one member and a maximum of 5, allowing for 
+				individual participation as well as collaborative team efforts. Each team will have the opportunity to showcase their projects to a panel of judges, who will evaluate them based on innovation, applicability, technical proficiency, and potential impact.
+				<br><br>
+				This event aims to provide a platform for students to demonstrate their skills, creativity, and vision in AI, while also promoting a culture of learning and knowledge-sharing among peers.
+			</p>
 		</div>
 
-        <!-- Button Container to hold both buttons -->
-        <div class="button-container">
-			<!--fix the underline on the discord button. also the whole column becomes the link-->
-			<a href="https://discord.gg/BbnSYp5e3P">
-				<button>
-					DISCORD
-					<span><i class="ri-discord-fill"></i></span>
-				</button>
-			</a>
-			<button>
-			  SIGN UP
-			  <span><i class="ri-arrow-right-line"></i></span>
-			</button>
+		<!-- FAQ Container -->
+		<div id="faq" class="info-container">		
+			<h2>Frequently Asked Questions</h2>
+				<button class="collapsible">Who can participate?</button>
+				<div class="content">
+					<p>The hackathon is open to students, professionals, beginners, and experts. All skill levels are welcome!</p>
+				</div>
+				<button class="collapsible">How do I register?</button>
+				<div class="content">
+					<p>You can register by filling out the form on Luma [link]. Make sure to register early as spots may be limited.</p>
+				</div>
+				<button class="collapsible">What are the event dates and times?</button>
+				<div class="content">
+					<p>The hackathon starts on Oct 18th at 9:00 AM and ends on Oct 25th at 8:00 PM.</p>
+				</div>
+				<button class="collapsible">What should I bring?</button>
+				<div class="content">
+					<p>Bring your laptop, charger, a notepad, and anything else you need to work comfortably. We’ll provide meals, snacks, and drinks throughout the event.</p>
+				</div>
+				<button class="collapsible">Can I form a team before the hackathon?</button>
+				<div class="content">
+					<p>Yes, you can form a team before the event. Teams can have up to 5 members. If you don’t have a team, we’ll help you find one during the event.</p>
+				</div>
+				<button class="collapsible">Can I participate solo?</button>
+				<div class="content">
+					<p>Yes, you can work solo or join a team at the event.</p>
+				</div>
+				<button class="collapsible">Where is the event being held?</button>
+				<div class="content">
+					<p>The hackathon will take place at Carlsen Center on the Library's 1st floor.</p>
+				</div>
+				<button class="collapsible">What if I need to leave early or arrive late?</button>
+				<div class="content">
+					<p>You can join or leave at any time, but your project must be completed and submitted before the deadline to qualify for prizes.</p>
+				</div>
+				<button class="collapsible">How will projects be judged?</button>
+				<div class="content">
+					<p>Projects will be judged based on creativity, technical diMiculty, innovation, and overall presentation. Specific judging criteria will be announced at the start of the event.</p>
+				</div>
+				<button class="collapsible">Are there prizes?</button>
+				<div class="content">
+					<p>Yes! We have awesome prizes for the top teams, including [mention prizes]</p>
+				</div>
+				<button class="collapsible">Who do I contact if I have more questions?</button>
+				<div class="content">
+					<p>You can reach out to us at [email/contact information] for any additional questions.</p>
+				</div>
+
 		</div>
-		<!--
-        <div class="scroll__bottom">
-          <a href="#">
-            <span><i class="ri-mouse-fill"></i></span>
-            SCROLL
-          </a>
-        </div>
-		-->
-        <div class="socials">
-          <a href="#"><i class="ri-dribbble-fill"></i></a>
-          <a href="#"><i class="ri-instagram-line"></i></a>
-          <a href="#"><i class="ri-youtube-fill"></i></a>
-        </div>
-		 <!-- About Section -->
-		 <section id="about" class="about-section">
-			<h3>About</h3>
+		<!-- Footer Section-->
+		<footer id="contact">
+			<p>Copyright &copy; 2024 Hornet Hacks. All Rights Reserved.</p>
 			<p>
-			  Hornet Hacks is a premier hackathon event organized by ACM and the Carlsen Center. 
-			  It provides an excellent platform for students to showcase their skills, 
-			  collaborate with peers, and build innovative solutions to real-world problems.
+			
 			</p>
-		  </section>
-	
-		  <!-- FAQ Section -->
-		  <section id="faq" class="faq-section">		
-			<h3>Frequently Asked Questions</h3>
-				<button class="collapsible">Open Section 1</button>
-				<div class="content">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-				</div>
-				<button class="collapsible">Open Section 2</button>
-				<div class="content">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-				</div>
-				<button class="collapsible">Open Section 3</button>
-				<div class="content">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-				</div>
-		  </section>
-	
-		  <!-- Footer -->
-		  <footer>
-			<p>&copy; 2024 Hornet Hacks. All Rights Reserved.</p>
-			<p>
-			  <a href="#">Privacy Policy</a> | 
-			  <a href="#">Terms of Service</a>
-			</p>
-		  </footer>
-      </section>
+		</footer>
+		
+	</div>
 
-    </div>
 
-    <script src="https://unpkg.com/scrollreveal"></script>
-    <script src="main.js"></script>
-  </body>
+	<script src="https://unpkg.com/scrollreveal"></script>
+	<script src="main.js"></script>
+</body>
 </html>
