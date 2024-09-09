@@ -49,3 +49,9 @@ const scrollRevealOption = {
 	interval: 400,
 	delay: 100,
   });
+
+  ScrollReveal().reveal(".organizers-container a", {
+    duration: 1000,
+    interval: 500,
+    delay: 100,
+  });
