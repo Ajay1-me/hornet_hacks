@@ -46,6 +46,6 @@ const scrollRevealOption = {
   
   ScrollReveal().reveal(".socials a", {
 	duration: 1000,
-	interval: 500,
-	delay: 2000,
+	interval: 400,
+	delay: 100,
   });
