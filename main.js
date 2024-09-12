@@ -44,12 +44,14 @@ const scrollRevealOption = {
 	delay: 2000,
   });*/
   
+  /* Behaves weirdly with mobile scrolling
   ScrollReveal().reveal(".socials a", {
 	duration: 1000,
 	interval: 400,
 	delay: 100,
   });
-
+  */
+ 
   ScrollReveal().reveal(".organizers-container a", {
     duration: 1000,
     interval: 500,
