@@ -18,7 +18,6 @@
 body {
   min-height: 100vh;
   font-family: "Fredoka", sans-serif;
-  background: rgb(4,57,39);
   background: var(--svg-url), -moz-linear-gradient(90deg, rgba(4,57,39,1) 0%, rgba(101,93,68,1) 100%);
   background: var(--svg-url), -webkit-linear-gradient(90deg, rgba(4,57,39,1) 0%, rgba(101,93,68,1) 100%);
   background: var(--svg-url), linear-gradient(90deg, rgba(4,57,39,1) 0%, rgba(101,93,68,1) 100%);
