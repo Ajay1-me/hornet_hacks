@@ -117,6 +117,7 @@ nav {
 
 .banner__container h3 {
 	margin-bottom: 1rem;
+  margin-top: 1rem;
 	font-size: 1.5rem;
 	font-weight: 500;
 	color: var(--white);
@@ -383,45 +384,88 @@ footer {
 
 
 
-/* New Media Queries for 481px, 768px, and 1025px */
 
-@media (max-width: 1025px) {
-  .row_container {
-    flex-direction: row; /* Ensure it remains row if desired */
-    /* Additional styles for medium screens can be added here */
-  }
 
-  /* Example adjustments */
-  .banner__container h1,
-  .banner__container h2 {
-    font-size: 6rem;
-    line-height: 6rem;
-  }
-}
+
+/* Media Queries for 480px, 768px, 1025px*/
 
 @media (max-width: 768px) {
+  .landing_container{
+    width: 90%;
+  }
+  .nav__links {
+    margin: 0;
+    align-items: center;
+  }
+  
   .row_container {
-    flex-direction: column; /* Stack columns vertically */
-    align-items: flex-start; /* Adjust alignment if necessary */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .col {
-    width: 100%; /* Ensure columns take full width */
+    width: 100%;
+    text-align: center;
+  }
+
+  .col-logo {
+    margin-top: 50px; /* Adjust the spacing as needed */
+  }
+
+  .button-container a {
+    display: block;
+    width: 100%; /* Buttons take full width on smaller screens */
+    margin: 5px 0; /* Spacing between buttons */
+  }
+
+  .button-container button {
+      width: 100%; /* Make buttons full width */
   }
 
   .banner__container h1,
   .banner__container h2 {
-    font-size: 5rem;
-    line-height: 5rem;
+    font-size: 3.5rem;
+    line-height: 4rem;
+  }
+
+  .banner__container h3 {
+    font-size: 1.3rem;
   }
 
   .banner__container button {
     font-size: 0.9rem;
     padding-left: 0.8rem;
   }
+
+
+  .info-container h2 {
+    font-size: 2rem;
+  }
+
+  .info-container p {
+    font-size: 1.3rem;
+  }
+
+  .organizers-container {
+    display: flex;
+    flex-direction: column; /* Stacks images vertically */
+    align-items: center; /* Centers images horizontally */
+    gap: 20px; /* Adds space between images */
+  }
+
+  .organizers-container img {
+      max-width: 100%; /* Ensures images are responsive */
+      height: auto; /* Maintains aspect ratio */
+      display: block; /* Removes any extra spacing below images */
+  }
+
+  footer {
+    gap: 20px;
+  }
 }
 
-@media (max-width: 481px) {
+@media (max-width: 480px) {
   .row_container {
     flex-direction: column; /* Stack columns vertically */
     align-items: flex-start;
@@ -431,8 +475,8 @@ footer {
 
   .banner__container h1,
   .banner__container h2 {
-    font-size: 3.5rem;
-    line-height: 3.5rem;
+    font-size: 2.5rem;
+    line-height: 2.8rem;
   }
 
   .banner__container h3 {
@@ -454,6 +498,14 @@ footer {
     gap: 1rem;
   }
 
+  .col-logo {
+    margin-top: 50px;
+  }
+
+  .col-logo img {
+    max-width: 70%; /* Image resizing for small screens */
+  }
+
   .socials {
     bottom: 1rem;
     right: 1rem;
@@ -461,93 +513,9 @@ footer {
 }
 
 
-/* Devices up to 481px */
-@media (max-width: 481px) {
-  .banner__container h1,
-  .banner__container h2 {
-    font-size: 2.5rem;
-    line-height: 2.8rem;
-  }
-
-  .banner__container h3 {
-    font-size: 1.2rem;
-  }
-
-  .col-logo {
-    margin-top: 5%;
-  }
-
-  .col-logo img {
-    max-width: 70%; /* Image resizing for small screens */
-  }
-
-  .row_container {
-    flex-direction: column; /* Stack the columns vertically */
-  }
-
-  
-}
-
-/* Devices between 481px and 768px */
-@media (min-width: 481px) and (max-width: 768px) {
-  .banner__container h1,
-  .banner__container h2 {
-    font-size: 3.5rem;
-    line-height: 4rem;
-  }
-
-  .banner__container h3 {
-    font-size: 1.3rem;
-  }
-
-  col-text {
-    justify-items: center;
-  }
-
-  .col-logo {
-    margin-top: 10%;
-    justify-content: center;
-  
-  }
-
-  .col-logo img {
-    max-width: 100%; /* Adjust image size for mid-sized screens */
-    justify-content: center;
-    justify-items: center;
-    padding-right: 10%;
-  }
-
-  .row_container {
-    flex-direction: column;
-  }
-
-  .info-container h2 {
-    font-size: 2rem;
-  }
-
-  .info-container p {
-    font-size: 1rem;
-  }
-}
-
-/* Devices between 768px and 1024px */
-@media (min-width: 768px) and (max-width: 1025px) {
-  .banner__container h1,
-  .banner__container h2 {
-    font-size: 4.5rem;
-    line-height: 5rem;
-  }
-
-  .banner__container h3 {
-    font-size: 1.4rem;
-  }
-
-  .col-logo img {
-    max-width: 90%; /* Image resizing for larger screens */
-  }
-
-  .row_container {
-    flex-direction: row;
+@media (max-width: 1025px) {
+  .landing_container{
+    width: 90%;
   }
 }
 
