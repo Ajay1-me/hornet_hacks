@@ -89,24 +89,6 @@ nav {
   justify-content: center;
 }
 
-.row_container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-left: 6%;
-  margin-right: 6%;
-}
-.col {
-  flex: 1;
-}
-.col-text {
-  color: #fff;
-}
-.col-logo img {
-  max-width: 100%;
-  height: auto;
-}
-
 .banner__container h1,
 .banner__container h2 {
   font-size: 4rem;
@@ -163,25 +145,22 @@ nav {
   text-decoration: none;
 }
 
-.scroll__bottom {
-  position: absolute;
-  bottom: 0;
-  transform: translate(-50%, -5rem) rotate(-90deg);
-  animation: scroll-down 2s linear infinite;
-}
-
-.scroll__bottom a {
-  text-decoration: none;
+.row_container {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 10px;
-  color: var(--white);
+  margin-left: 6%;
+  margin-right: 6%;
 }
-
-.scroll__bottom span {
-  display: block;
-  font-size: 1.2rem;
-  transform: rotate(90deg);
+.col {
+  flex: 1;
+}
+.col-text {
+  color: #fff;
+}
+.col-logo img {
+  max-width: 100%;
+  height: auto;
 }
 
 .collapsible {
@@ -267,6 +246,44 @@ nav {
   border-radius: 100%;
   box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
 }
+
+
+
+.marquee {
+  background-color: #fff;
+  display: flex;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+  margin-top: 10rem;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+}
+.marquee__slider {
+  display: flex;
+  flex-direction: row;
+  object-fit: cover;
+  padding: 5px;
+  animation: marquee linear 40s infinite;
+  gap: 1rem;
+}
+
+.marquee:hover .marquee__slider {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+
+
+
 
 @media (max-width: 465px) {
   .organizers-container {
@@ -422,6 +439,9 @@ footer {
 
   .banner__container h3 {
     font-size: 1.3rem;
+  }
+  .banner__container h4 {
+    font-size: 1rem;
   }
 
   .banner__container button {
