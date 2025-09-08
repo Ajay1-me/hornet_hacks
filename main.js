@@ -22,7 +22,8 @@ const scrollRevealOption = {
   ScrollReveal().reveal(".banner__container h3", {
 	...scrollRevealOption,
   });
-  ScrollReveal().reveal(".banner_container h1", {
+  // Fix selector: use banner__container (double underscore)
+  ScrollReveal().reveal(".banner__container h1", {
 	...scrollRevealOption,
 	origin: "left",
 	delay: 500,
@@ -57,13 +58,4 @@ const scrollRevealOption = {
     interval: 500,
     delay: 100,
   });
-
-  const root = document.documentElement;
-  const marqueeElementsDisplayed = getComputedStyle(root).getPropertyValue("--marquee-elements-displayed");
-  const marqueeContent = document.querySelector("ul.marquee-content");
-  
-  root.style.setProperty("--marquee-elements", marqueeContent.children.length);
-  
-  for(let i=0; i<marqueeElementsDisplayed; i++) {
-    marqueeContent.appendChild(marqueeContent.children[i].cloneNode(true));
-  }
+  // Removed unused marquee JS targeting .marquee-content which does not exist in markup
