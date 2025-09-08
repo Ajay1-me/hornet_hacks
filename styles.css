@@ -472,71 +472,116 @@ footer {
 
 
 
-/* Media Queries for 480px, 768px, 1025px*/
+/* Media Queries for modern phones and tablets */
 
+/* Small phones (320px - 480px) */
 @media (max-width: 480px) {
-.row_container {
-  flex-direction: column; /* Stack columns vertically */
-  align-items: flex-start;
-  margin-left: 1.5%;
-  margin-right: 1.5%;
+  .landing_container {
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  .row_container {
+    flex-direction: column;
+    align-items: center;
+    margin: 0 2%;
+    gap: 2rem;
+  }
+
+  .banner__container h1,
+  .banner__container h2 {
+    font-size: 2.2rem;
+    line-height: 2.5rem;
+    text-align: center;
+  }
+
+  .banner__container h3 {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .banner__container button {
+    font-size: 0.8rem;
+  
+    width: 100%;
+    justify-content: center;
+  }
+
+  .button-container {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 8%;
+    width: 100%;
+  }
+
+  .col-logo {
+    margin-top: 2rem;
+    width: 100%;
+  }
+
+  .col-logo img {
+    max-width: 80%;
+    height: auto;
+  }
+
+  .info-container {
+    padding: 4rem 1rem 2rem 1rem;
+  }
+
+  .info-container h2 {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .info-container p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .collapsible {
+    font-size: 14px;
+    padding: 15px;
+  }
+
+  .content {
+    margin-right: 0;
+  }
+
+  .organizers-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .organizers-container a {
+    width: 80%;
+    max-width: 200px;
+  }
+
+  .socials {
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  footer {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+    padding: 3rem 1rem;
+  }
+
+  body {
+    background-size: 150px 130px, cover;
+    animation-duration: 60s;
+  }
 }
 
-.banner__container h1,
-.banner__container h2 {
-  font-size: 2.5rem;
-  line-height: 2.8rem;
-}
-
-.banner__container h3 {
-  font-size: 1.2rem;
-}
-
-.banner__container button {
-  font-size: 0.8rem;
-  padding-left: 0.5rem;
-}
-
-/*
-.nav__links {
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.nav__links > div {
-  flex-direction: column;
-  gap: 1rem;
-}
-*/
-
-.col-logo {
-  margin-top: 50px;
-}
-
-.col-logo img {
-  max-width: 70%; /* Image resizing for small screens */
-}
-
-.socials {
-  bottom: 1rem;
-  right: 1rem;
-}
-
-.organizers-container {
-  justify-content: center;
-}
-.organizers-container a {
-  padding: 20px 10px 20px 10px;
-  width: 50%;
-}
-
-
-}
-
+/* Tablets and large phones (481px - 778px) */
 @media (max-width: 778px) {
-.landing_container{
-  width: 90%;
-}
+  .landing_container {
+    width: 95%;
+    margin: 0 auto;
+  }
 
 
 .row_container {
@@ -622,28 +667,74 @@ footer p {
 
 }
 
-@media (width > 768px) {
-.nav__links > div li:not(:first-child) {
-  display: block;
-}
-
-.nav__links > div {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-}
-
-.banner__container h1,
-.banner__container h2 {
-  font-size: 6.5rem;
-  line-height: 6.5rem;
-}
-}
-
-@media (max-width: 1025px) {
-  .landing_container{
+/* Large tablets and small desktops (779px - 1024px) */
+@media (min-width: 779px) and (max-width: 1024px) {
+  .landing_container {
     width: 90%;
+    margin: 0 auto;
   }
-  
+
+  .row_container {
+    margin: 0 4%;
+    gap: 3rem;
+  }
+
+  .banner__container h1,
+  .banner__container h2 {
+    font-size: 4.5rem;
+    line-height: 5rem;
+  }
+
+  .banner__container h3 {
+    font-size: 1.4rem;
+  }
+
+  .info-container {
+    padding: 6rem 3rem 4rem 3rem;
+  }
+
+  .info-container h2 {
+    font-size: 2.8rem;
+  }
+
+  .info-container p {
+    font-size: 1.2rem;
+    line-height: 1.7;
+  }
+
+  .organizers-container {
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+
+  .organizers-container a {
+    width: 30%;
+    min-width: 180px;
+  }
+
+  body {
+    background-size: 200px 170px, cover;
+  }
 }
+
+/* Desktop and large screens (1025px+) */
+@media (min-width: 1025px) {
+  .nav__links > div li:not(:first-child) {
+    display: block;
+  }
+
+  .nav__links > div {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .banner__container h1,
+  .banner__container h2 {
+    font-size: 6.5rem;
+    line-height: 6.5rem;
+  }
+}
+
 
