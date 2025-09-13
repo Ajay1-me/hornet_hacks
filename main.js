@@ -58,4 +58,3 @@ const scrollRevealOption = {
     interval: 500,
     delay: 100,
   });
-  // Removed unused marquee JS targeting .marquee-content which does not exist in markup

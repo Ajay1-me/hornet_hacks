@@ -125,7 +125,6 @@ nav {
    --hero-h: clamp(520px, 80svh, 100svh);
 }
 
-
 /* Pin the block and scale from its top-left corner */
 .banner__container .col-text {
   position: absolute;
@@ -447,7 +446,7 @@ footer {
 
 
 
-/* Media Queries for modern phones and tablets */
+/* Media Queries for phones and tablets */
 
 /* Small phones (320px - 480px) */
 @media (max-width: 480px) {
