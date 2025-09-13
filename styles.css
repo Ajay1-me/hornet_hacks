@@ -37,7 +37,7 @@ body {
 }
 
 nav {
-  padding: 1rem 1rem;
+  padding: 2rem 2rem;
   overflow: hidden;
   position: sticky;
   top: 0;
@@ -91,23 +91,73 @@ nav {
   background-color: rgba(255, 255, 255, 0.08);
 }
 
-.banner__container {
-  flex: 1;
-  min-height: 80vh;
-  width: 100%;
-  position: relative;
-  isolation: isolate;
+.hero_container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding-top: 3rem;
-  padding-bottom: 2rem;
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.banner__container {
+  position: relative;
+  width: 100%;           /* make responsive */
+  height: 100vh;
+  margin: 0 auto;  /* centers it horizontally */
+  overflow: hidden;
+
+   /* Baseline: your desktop comp width + the desktop offsets */
+   --design-w: 1440;          /* change if your desktop mock is a different width */
+   --base-left: 200px;        /* your original left offset */
+   --base-top: 30px;          /* your original top offset */
+ 
+   /* How small we allow it to shrink (tweak 0.60 if needed) */
+   --ui-scale: clamp(0.60, calc(100vw / var(--design-w)), 1);
+ 
+   /* Keep the same *relative* position as we scale down */
+   --ui-left: clamp(12px, calc(var(--base-left) * var(--ui-scale)), var(--base-left));
+   --ui-top: clamp(8px, calc(var(--base-top) * var(--ui-scale)), var(--base-top));
+
+   /* left gutter inside the text block */
+  --pad-left: 10rem;
+
+   /* variable hero height that can shrink on smaller screens */
+   --hero-h: clamp(520px, 80svh, 100svh);
 }
 
 
+/* Pin the block and scale from its top-left corner */
+.banner__container .col-text {
+  position: absolute;
+  left: var(--ui-left);
+  top: var(--ui-top);
+  z-index: 2;
+
+  transform-origin: top left;
+  transform: scale(var(--ui-scale));
+  padding-left: var(--pad-left);
+}
+
+
+/* Headings (desktop sizes × small trims) */
+.banner__container .col-text h2{
+  /* desktop feel but fluid: ~2.4rem → 5.8rem */
+  font-size: clamp(2.4rem, 6vw, 5.8rem);
+  line-height: 1.05;
+  letter-spacing: clamp(0.2px, 0.15vw, 1px);
+}
+
+.banner__container .col-text h3{
+  /* ~1rem → 1.6rem */
+  font-size: clamp(1rem, 2.2vw, 1.6rem);
+  opacity: 0.95;
+  margin-top: clamp(8px, 1.2vw, 14px);
+}
+
+/*
 .banner__container h1,
 .banner__container h2 {
-  font-size: 4rem;
+  font-size: 2rem;
   font-weight: 600;
   color: var(--white);
   line-height: 4rem;
@@ -160,7 +210,7 @@ nav {
 
 .button-container {
   display: flex;
-  gap: 10px; /* Adjust the space between buttons */
+  gap: 10px; /* Adjust the space between buttons 
   margin-top: 8%;
 }
 .button-container button {
@@ -169,6 +219,78 @@ nav {
 }
 .button-container a {
   text-decoration: none;
+}
+*/
+
+.banner__container .button-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; /* wrap only if it must */
+  gap: clamp(8px, 1.2vw, 14px);
+  margin-top: clamp(14px, 2vw, 24px);
+}
+
+.banner__container .button-container a{ text-decoration:none; }
+
+.banner__container .button-container button{
+  /* RESTORED visual style */
+  max-width: fit-content;
+  margin-block: 0.5rem;
+  background-color: transparent;
+  color: var(--white);
+  border: 2px solid var(--white);
+  border-radius: 999px;
+  outline: none;
+  display: flex;
+  align-items: center;
+  gap: clamp(10px, 1.2vw, 14px);
+  font-weight: 600;
+
+  /* fluid sizing */
+  font-size: clamp(.9rem, 1.3vw, 1.1rem);
+  padding-left: clamp(12px, 1.2vw, 18px);
+
+  /* original hover motion */
+  transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease;
+}
+.banner__container .button-container button span{
+  /* RESTORED capsule */
+  background-color: var(--white);
+  color: var(--primary-color);
+  border-top-right-radius: 999px;
+  border-bottom-right-radius: 999px;
+
+  /* fluid sizing */
+  font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+  padding: clamp(8px, 1.1vw, 12px) clamp(18px, 2vw, 26px);
+}
+.banner__container .button-container button:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  background-color: rgba(255,255,255,0.06);
+}
+
+/* ---------- Subtle entrance (dynamic feel) ---------- */
+.banner__container .col-text > *{
+  opacity: 0; transform: translateY(8px);
+  animation: hero-fade-up .65s ease-out forwards;
+}
+.banner__container .col-text > *:nth-child(2){ animation-delay: .06s; } /* date */
+.banner__container .col-text > *:nth-child(3){ animation-delay: .12s; } /* buttons */
+
+@keyframes hero-fade-up{
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero_banner {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: url("TowerBridge2.png") no-repeat center top ;
+  background-size: cover;
+  z-index: 1;
+  filter: brightness(0.7);
 }
 
 .row_container {
@@ -184,81 +306,15 @@ nav {
   flex: 1;
 }
 .col-text {
+  position: absolute;
+  top: 10%;              /* % keeps it anchored consistently */
+  left: 5%;
   color: #fff;
+  z-index: 2;
 }
 
 .col-text h1 { margin-top: 0.25rem; }
-.col-text h2 { margin-top: 0.25rem; }
-.col-logo img {
-  max-width: 100%;
-  height: auto;
-}
-
-
-
-
-/* Positioning Hornet Container */
-.col-logo {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-
-
-.col-logo .sac-logo { display: block; }
-
-.col-logo .sac-logo {
-  z-index: 1;
-}
-
-.sac-logo {
-  width: 100%;
-  max-width: 640px;
-  margin: 0 auto;
-}
-
-.sac-logo svg {
-  width: 100%;
-  height: auto;
-  animation: floaty 8s ease-in-out infinite, bridge-rotate 20s linear infinite;
-}
-
-.bridge-3d {
-  transform-origin: center center;
-}
-
-.ai-nodes circle {
-  animation: node-pulse 2.8s ease-in-out infinite;
-}
-
-.ai-nodes circle:nth-child(2) { animation-delay: 0.2s; }
-.ai-nodes circle:nth-child(3) { animation-delay: 0.4s; }
-.ai-nodes circle:nth-child(4) { animation-delay: 0.6s; }
-.ai-nodes circle:nth-child(5) { animation-delay: 0.8s; }
-.ai-nodes circle:nth-child(6) { animation-delay: 1.0s; }
-.ai-nodes circle:nth-child(7) { animation-delay: 1.2s; }
-.ai-nodes circle:nth-child(8) { animation-delay: 1.4s; }
-
-@keyframes node-pulse {
-  0%, 100% { opacity: 0.6; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.4); }
-}
-
-@keyframes floaty {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
-}
-
-@keyframes bridge-rotate {
-  0% { transform: perspective(1000px) rotateX(15deg) rotateY(-25deg) rotateZ(0deg); }
-  25% { transform: perspective(1000px) rotateX(12deg) rotateY(-20deg) rotateZ(1deg); }
-  50% { transform: perspective(1000px) rotateX(15deg) rotateY(-25deg) rotateZ(0deg); }
-  75% { transform: perspective(1000px) rotateX(18deg) rotateY(-30deg) rotateZ(-1deg); }
-  100% { transform: perspective(1000px) rotateX(15deg) rotateY(-25deg) rotateZ(0deg); }
-}
-
+.col-text h2 { margin-top: 1rem; }
 
 .info-container {
   padding: 10rem 0 3rem 0;
@@ -270,7 +326,6 @@ nav {
   font-weight: 600;
   color: var(--white);
   padding-bottom: 4rem;
-
 }
 
 .info-container h3 {
@@ -425,7 +480,6 @@ footer {
   overflow: hidden;
   white-space: nowrap;
   width: 100%;
-  margin-top: 10rem;
   padding: 0.5rem;
   font-size: 1.5rem;
 }
@@ -449,18 +503,7 @@ footer {
   to {
     transform: translateX(-100%);
   }
-}
-
-/*
-@media (width > 540px) {
-.banner__container h1,
-.banner__container h2 {
-  font-size: 5.5rem;
-  line-height: 5.5rem;
-}
-}
-*/
-
+} 
 
 
 
@@ -476,6 +519,29 @@ footer {
 
 /* Small phones (320px - 480px) */
 @media (max-width: 480px) {
+  .banner__container{
+    --hero-ratio: 2/1;     /* wider ratio = shorter hero → less “gap” */
+    --hero-min: 220px;
+    --hero-max: 74svh;
+    --hero-pos-y: 8%;      /* nudge focal point down if needed */
+    height: clamp(var(--hero-min), calc(100vw / var(--hero-ratio)), var(--hero-max));
+    --pad-left: 0;
+  }
+
+  .banner__container .col-text{
+    left: 12px !important;      /* hard-left with a safe gutter */
+    right: auto !important;
+    padding-left: 0 !important; /* ensure no push-in */
+    margin: 0 !important;
+    width: calc(100vw - 24px);  /* avoid edge collisions */
+    text-align: left !important;
+    transform-origin: top left;
+    /* keep your scale if you’re using it */
+    transform: scale(var(--ui-scale));
+  }
+
+  .hero_banner{ transform: translateY(0); } /* keep it snug */
+
   .landing_container {
     width: 95%;
     margin: 0 auto;
@@ -483,35 +549,12 @@ footer {
 
   .row_container {
     flex-direction: column;
-    align-items: center;
     margin: 0 2%;
     gap: 2rem;
   }
 
-  .banner__container h1,
-  .banner__container h2 {
-    font-size: 2.2rem;
-    line-height: 2.5rem;
-    text-align: center;
-  }
-
-  .banner__container h3 {
-    font-size: 1rem;
-    text-align: center;
-  }
-
-  .banner__container button {
-    font-size: 0.8rem;
-  
-    width: 100%;
-    justify-content: center;
-  }
-
-  .button-container {
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 8%;
-    width: 100%;
+  .col-text {
+    left: 2%;
   }
 
   .col-logo {
@@ -578,97 +621,94 @@ footer {
 
 /* Tablets and large phones (481px - 778px) */
 @media (max-width: 778px) {
+  .banner__container{
+    --hero-ratio: 18/9;    /* a touch taller than 2/1 */
+    --hero-min: 360px;
+    --hero-max: 78svh;
+    --hero-pos-y: 6%;
+    height: clamp(var(--hero-min), calc(100vw / var(--hero-ratio)), var(--hero-max));
+    --pad-left: 0;
+  }
+
+  .banner__container .col-text{
+    left: 30px !important;
+    right: auto !important;
+    padding-left: 0 !important;
+    width: calc(100vw - 32px);
+    text-align: left !important;
+    transform-origin: top left;
+    transform: scale(var(--ui-scale));
+  }
+
+  .hero_banner{ transform: translateY(0.5vh); }
+
   .landing_container {
-    width: 95%;
+    width: 90%;
     margin: 0 auto;
   }
 
+  .row_container {
+    display: flex;
+    flex-direction: column;
+  }
 
-.row_container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+  .col {
+    width: 100%;
+  }
 
-.col {
-  width: 100%;
-  text-align: center;
-}
+  .col-text {
+    left: 0%;
+  }
 
-.col-logo {
-  margin-top: 50px; /* Adjust the spacing as needed */
-}
+  .col-logo {
+    margin-top: 50px; /* Adjust the spacing as needed */
+  }
+  
+  .info-container h2 {
+    font-size: 2rem;
+  }
 
-.button-container a {
-  display: block;
-  width: 100%;
-  margin: 5px 0; /* Spacing between buttons */
-}
+  .info-container p {
+    font-size: 1.3rem;
+  }
 
-.button-container button {
-  margin: auto;      
-  width: 100%;
-}
+  .organizers-container {
+    display: flex;
+    flex-direction: column; /* Stacks images vertically */
+    align-items: center; /* Centers images horizontally */
+    gap: 20px; /* Adds space between images */
+  }
 
-.banner__container h1,
-.banner__container h2 {
-  font-size: 3.5rem;
-  line-height: 4rem;
-}
+  .organizers-container img {
+      max-width: 100%; /* Ensures images are responsive */
+      height: auto; /* Maintains aspect ratio */
+      display: block; /* Removes any extra spacing below images */
+  }
 
-.banner__container h3 {
-  font-size: 1.3rem;
-}
-.banner__container h4 {
-  font-size: 1rem;
-}
+  .collapsible {
+    width: 90%;
+  }
 
-.banner__container button {
-  font-size: 0.9rem;
-  padding-left: 0.8rem;
-}
+  footer {
+    flex-direction: column;
+    gap: 20px;
+  }
 
-
-.info-container h2 {
-  font-size: 2rem;
-}
-
-.info-container p {
-  font-size: 1.3rem;
-}
-
-.organizers-container {
-  display: flex;
-  flex-direction: column; /* Stacks images vertically */
-  align-items: center; /* Centers images horizontally */
-  gap: 20px; /* Adds space between images */
-}
-
-.organizers-container img {
-    max-width: 100%; /* Ensures images are responsive */
-    height: auto; /* Maintains aspect ratio */
-    display: block; /* Removes any extra spacing below images */
-}
-
-.collapsible {
-  width: 90%;
-}
-
-footer {
-  flex-direction: column;
-  gap: 20px;
-}
-
-footer p {
-  margin-bottom: 10px;
-  text-align: center;
-}
-
-
+  footer p {
+    margin-bottom: 10px;
+    text-align: center;
+  }
 }
 
 /* Large tablets and small desktops (779px - 1024px) */
 @media (min-width: 779px) and (max-width: 1024px) {
+  .banner__container{ --pad-left: 0; }
+  .banner__container .col-text{
+    left: 45px !important;
+    padding-left: 0 !important;
+    text-align: left !important;
+  }
+
   .landing_container {
     width: 90%;
     margin: 0 auto;
@@ -677,16 +717,6 @@ footer p {
   .row_container {
     margin: 0 4%;
     gap: 3rem;
-  }
-
-  .banner__container h1,
-  .banner__container h2 {
-    font-size: 4.5rem;
-    line-height: 5rem;
-  }
-
-  .banner__container h3 {
-    font-size: 1.4rem;
   }
 
   .info-container {
@@ -720,6 +750,11 @@ footer p {
 
 /* Desktop and large screens (1025px+) */
 @media (min-width: 1025px) {
+  .landing_container {
+    width: 90%;
+    margin: 0 auto;
+  }
+
   .nav__links > div li:not(:first-child) {
     display: block;
   }
@@ -735,6 +770,11 @@ footer p {
     font-size: 6.5rem;
     line-height: 6.5rem;
   }
+
 }
+
+
+
+
 
 
