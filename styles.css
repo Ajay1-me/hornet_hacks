@@ -20,11 +20,17 @@
 body {
   min-height: 100vh;
   font-family: "Fredoka", sans-serif;
-  background-image: var(--bg-hex-url), linear-gradient(120deg, var(--bg-grad-start) 0%, var(--bg-grad-end) 100%);
-  background-size: 220px 190px, cover;
-  background-attachment: fixed, fixed;
-  background-position: 0 0, center;
-  animation: hex-pan 45s linear infinite;
+  background-color: var(--bg-grad-start);
+}
+
+#widnCanvas,
+#windCanvas {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;          /* sits behind everything */
+  pointer-events: none; /* don’t block clicks */
 }
 
 .landing_container {
@@ -34,6 +40,14 @@ body {
   max-width: var(--max-width);
   margin: auto;
   overflow: hidden;
+}
+
+.section-transition {
+  position: absolute;
+  width: 100%;
+  height: 100px; /* adjust thickness */
+  background: linear-gradient(to top, transparent, #0F0F0F 100%);
+  z-index: 2;
 }
 
 nav {
@@ -98,6 +112,30 @@ nav {
   position: relative;
   overflow: hidden;
 }
+
+.hero_container::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: linear-gradient(to bottom, transparent, #0f0f0f 100%);
+  z-index: 2;
+}
+
+
+.hero_banner::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: linear-gradient(to bottom, transparent, #0F0F0F 100%);
+  z-index: 2;
+}
+
 
 .banner__container {
   position: relative;
@@ -221,7 +259,7 @@ nav {
   background: url("Images/TowerBridge2.png") no-repeat center top ;
   background-size: cover;
   z-index: 1;
-  filter: brightness(0.7);
+  filter: brightness(0.75);
 }
 
 .row_container {
@@ -450,6 +488,10 @@ footer {
 
 /* Small phones (320px - 480px) */
 @media (max-width: 480px) {
+  .nav__links img {
+    max-width: 35px;
+  }
+
   .banner__container{
     --hero-ratio: 2/1;     /* wider ratio = shorter hero → less “gap” */
     --hero-min: 220px;
@@ -467,7 +509,6 @@ footer {
     width: calc(100vw - 24px);  /* avoid edge collisions */
     text-align: left !important;
     transform-origin: top left;
-    /* keep your scale if you’re using it */
     transform: scale(var(--ui-scale));
   }
 
@@ -542,6 +583,9 @@ footer {
 
 /* Tablets and large phones (481px - 778px) */
 @media (max-width: 778px) {
+  .nav__links img {
+    max-width: 35px;
+  }
   .banner__container{
     --hero-ratio: 18/9;    /* a touch taller than 2/1 */
     --hero-min: 360px;
@@ -619,6 +663,9 @@ footer {
 
 /* Large tablets and small desktops (779px - 1024px) */
 @media (min-width: 779px) and (max-width: 1024px) {
+  .nav__links img {
+    max-width: 42px;
+  }
   .banner__container{ --pad-left: 0; }
   .banner__container .col-text{
     left: 45px !important;
