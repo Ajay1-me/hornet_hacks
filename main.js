@@ -14,6 +14,35 @@ for (i = 0; i < coll.length; i++) {
   });
 }
 
+const hamburger = document.querySelector(".hamburger");
+const navLinks = document.querySelector(".nav__links");
+
+hamburger.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
+  hamburger.classList.toggle("open");
+});
+
+// Close menu when a nav link is clicked
+document.querySelectorAll(".nav__links a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("active");
+    hamburger.classList.remove("open");
+  });
+});
+
+// Close menu when clicking outside
+document.addEventListener("click", (e) => {
+  if (
+    navLinks.classList.contains("active") && 
+    !navLinks.contains(e.target) && 
+    !hamburger.contains(e.target)
+  ) {
+    navLinks.classList.remove("active");
+    hamburger.classList.remove("open");
+  }
+});
+
+
 /* Wind Canvas Animation */
 const canvas = document.getElementById("windCanvas");
 const ctx = canvas.getContext("2d");
