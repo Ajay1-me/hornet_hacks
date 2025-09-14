@@ -52,11 +52,15 @@ body {
 
 nav {
   padding: 2rem 2rem;
-  overflow: hidden;
   position: sticky;
   top: 0;
   z-index: 100;
-  background: transparent;
+  transition: transform 0.8s ease, opacity 0.8s ease;
+}
+
+nav.hidden {
+  transform: translateY(-100%);
+  opacity: 0;
 }
 
 .nav__links {

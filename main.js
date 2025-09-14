@@ -14,6 +14,7 @@ for (i = 0; i < coll.length; i++) {
   });
 }
 
+/* Hamburger Section*/
 const hamburger = document.querySelector(".hamburger");
 const navLinks = document.querySelector(".nav__links");
 
@@ -100,6 +101,23 @@ animate();
 
 
 /* ScrollReveal Animations */
+let lastScroll = 0;
+const nav = document.querySelector("nav");
+
+window.addEventListener("scroll", () => {
+  const currentScroll = window.pageYOffset;
+
+  if (currentScroll > lastScroll && currentScroll > 50) {
+    // scrolling down
+    nav.classList.add("hidden");
+  } else {
+    // scrolling up
+    nav.classList.remove("hidden");
+  }
+
+  lastScroll = currentScroll;
+});
+
 const scrollRevealOption = {
 	distance: "50px",
 	origin: "bottom",
