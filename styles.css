@@ -252,13 +252,12 @@ nav.hidden {
   align-items: center;
   gap: clamp(10px, 1.2vw, 14px);
   font-weight: 600;
-
-  /* fluid sizing */
   font-size: clamp(.9rem, 1.3vw, 1.1rem);
   padding-left: clamp(12px, 1.2vw, 18px);
 
   /* original hover motion */
   transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease;
+  cursor: pointer;
 }
 .banner__container .button-container button span{
   /* RESTORED capsule */
@@ -357,6 +356,7 @@ nav.hidden {
   background-color: transparent;
   outline: none;
   border-bottom: 2px solid #c5bc9c;
+  cursor: pointer;
 }
 
 .content {
@@ -798,9 +798,3 @@ footer {
   }
 
 }
-
-
-
-
-
-
